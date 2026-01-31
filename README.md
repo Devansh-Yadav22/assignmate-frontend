@@ -128,10 +128,6 @@ risks are explained
 
 system behavior is predictable
 
-📸 Screenshots
-
-(Add screenshots of UI here once you want extra polish)
-
 👨‍💻 Author
 
 Built by Devansh Yadav
