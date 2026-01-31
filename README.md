@@ -1,73 +1,156 @@
-# React + TypeScript + Vite
+🧠 AssignMate — AI-Assisted Assignment Rewriter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AssignMate is a multi-mode AI writing assistant designed for students who want clearer, more natural assignment writing without losing academic credibility.
 
-Currently, two official plugins are available:
+Unlike typical “AI rewriters,” AssignMate is built around an honest trade-off model:
+professional quality vs AI-detection risk — and gives users control over that balance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Live Demo
 
-## React Compiler
+Frontend: 👉 your Vercel URL here
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Backend API: 👉 your Render URL here
 
-## Expanding the ESLint configuration
+✨ Key Features
+🔁 Three Rewrite Modes (Core Innovation)
+Mode Purpose AI Detection Risk
+🎓 Academic Formal, professional rewriting High
+⚖️ Balanced (Recommended) Academic + light human variation Medium
+🔥 Aggressive Strong human-style rewriting Low
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Each mode is intentionally designed for different real-world needs, not false promises.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🧠 Two-Stage AI Pipeline (Balanced Mode)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Balanced mode uses a two-stage rewriting architecture:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Stage 1: Academic-quality rewrite (clarity & correctness)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Stage 2: Light humanization (sentence rhythm & variation)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This approach significantly reduces AI detection without compromising academic tone.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🚦 Built-in Safety & Cost Controls
+
+✅ Rate limiting (5 requests/min per IP)
+
+✅ Input caps (1000 words max)
+
+✅ Clear user feedback for limits
+
+✅ API key fully protected (never exposed to frontend)
+
+Designed to be safe for public deployment.
+
+🌗 Clean, Modern UI
+
+Light & Dark mode
+
+Glassmorphism-inspired design
+
+Smooth transitions & animations
+
+Mobile-friendly
+
+Clear UX explanations for rewrite modes
+
+🛠️ Tech Stack
+Frontend
+
+React (TypeScript)
+
+Vite
+
+Tailwind CSS
+
+Deployed on Vercel
+
+Backend
+
+Node.js
+
+Express
+
+Google Gemini API
+
+express-rate-limit
+
+Deployed on Render
+
+🧩 How It Works (High Level)
+
+User selects a rewrite mode
+
+Text is sent securely to backend
+
+Backend:
+
+validates input
+
+applies rate limits
+
+selects AI prompt strategy
+
+Gemini API generates rewritten text
+
+Result is returned to frontend with UX feedback
+
+All AI logic and secrets remain server-side.
+
+⚠️ Important Disclaimer
+
+AssignMate does not guarantee:
+
+plagiarism immunity
+
+Turnitin bypass
+
+AI-detector evasion
+
+AI detection tools are inconsistent and evolving.
+AssignMate is designed to improve writing quality and human-likeness, not to deceive academic systems.
+
+🎯 Why This Project Matters
+
+Most student AI tools:
+
+chase “0% AI detection”
+
+hide trade-offs
+
+ignore academic realism
+
+AssignMate takes a transparent, ethical, and engineering-driven approach:
+
+users choose the balance
+
+risks are explained
+
+system behavior is predictable
+
+📸 Screenshots
+
+(Add screenshots of UI here once you want extra polish)
+
+👨‍💻 Author
+
+Built by Devansh Yadav
+Computer Science undergraduate exploring AI systems, product engineering, and responsible AI tooling.
+
+📌 Future Improvements
+
+User accounts & usage history
+
+Mode usage analytics
+
+Paid tiers with higher limits
+
+Export formats (PDF / DOCX)
+
+Caching & performance optimizations
+
+⭐ Final Note
+
+This project was built to learn real-world AI product engineering, not just to call an API.
+
+If you’re a student, developer, or recruiter — feel free to explore the code and architecture.
