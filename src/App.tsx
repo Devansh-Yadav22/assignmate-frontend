@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 type Mode = "academic" | "balanced" | "aggressive";
 
 function App() {
+  const [cooldown, setCooldown] = useState(false);
+
   const [text, setText] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,14 +37,26 @@ function App() {
         body: JSON.stringify({ text, mode }),
       });
 
-      const data = await res.json();
+      let data;
 
-      if (!res.ok) {
-        setError(data.error || "Request failed. Please try again.");
-        return;
-      }
+try {
+  data = await res.json();
+} catch {
+  setError("Server is waking up. Please wait a few seconds and try again.");
+  return;
+}
+
+if (res.status === 429) {
+  setError("Too many requests. Please wait about a minute and try again.");
+  setCooldown(true);
+  setTimeout(() => setCooldown(false), 60000); // 1 minute
+}
+
+
 
       setResult(data.rewrittenText);
+      setError(null);
+
     } catch {
       setError("Network error. Please check your connection.");
     } finally {
@@ -119,7 +133,7 @@ function App() {
 
         <button
           onClick={handleRewrite}
-          disabled={loading || !text.trim()}
+          disabled={loading || cooldown || !text.trim()}
           className="mt-5 bg-blue-600 hover:bg-blue-700 text-white px-7 py-2.5 rounded-xl font-medium transition-all hover:shadow-lg hover:-translate-y-0.5 disabled:opacity-50"
         >
           {loading ? "Processing..." : "Rewrite"}
