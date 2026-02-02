@@ -7,9 +7,9 @@ professional quality vs AI-detection risk — and gives users control over that 
 
 🚀 Live Demo
 
-Frontend: 👉 your Vercel URL here
+Frontend: 👉 https://assignmate-frontend.vercel.app/
 
-Backend API: 👉 your Render URL here
+Backend API: 👉 https://assignmate-backend-wkq9.onrender.com
 
 ✨ Key Features
 🔁 Three Rewrite Modes (Core Innovation)
